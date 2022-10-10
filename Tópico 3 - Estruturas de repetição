@@ -1,0 +1,136 @@
+//17.	O número 3025 possui a seguinte característica: 30 + 25 = 55 -> 55*55 = 3025. Fazer um programa para obter todos os números de 4 algarismos com a mesma característica do número 3025.
+
+//18.	Fazer um programa para mostrar os 15 primeiros termos da série de Fibonacci.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+ int main() {
+ int a, b, aux, i;
+
+printf("15 Primeiros termos da série de Fibonacci\n\n");
+
+    a = 0;
+    b = 1;
+
+    for(i = 0; i < 15; i++)
+    {
+        aux = a + b;
+        a = b;
+        b = aux;
+
+        printf("%d\n", aux);
+    }
+        return 0;
+    }
+
+//19.	Fazer um programa para mostrar todos os números perfeitos entre 1 e 100. Número perfeito é todo número inteiro cuja soma dos seus divisores é igual ao dobro do próprio número.
+
+//20.	Fazer um programa para receber um número inteiro do usuário e determinar se este número é primo ou não.
+
+#include<stdio.h>
+ 
+int main() {
+int num, i, resultado = 0;
+ 
+ printf("Digite um número: \n");
+ scanf("%d", &num);
+ 
+ for (i = 2; i <= num / 2; i++) {
+ if (num % i == 0) {
+ resultado++;
+    }
+ }
+ 
+ if (resultado == 0)
+    printf("%d é um número primo\n", num);
+ else
+    printf("%d não é um número primo\n", num);
+ 
+ return 0;
+}
+
+//21.	Fazer um programa para simular a trajetória parabólica de um projétil (como, por exemplo, no jogo Angry Birds) arremessado de uma altura h, com velocidade inicial V e ângulo de lançamento ang. Considerar que a posição (x,y) do projétil deve ser atualizada e mostrada via printf em um intervalo de tempo correspondente a dt (por exemplo, 10 ms).
+
+//22.	(Cortesia do Prof. Bogdan Tomoyuki Nassu) Escreva um programa que calcule o quociente e o resto da divisão de dois números inteiros dados, usando apenas as operações de soma e/ou subtração.
+
+//23.	Fazer um programa para receber um número do usuário e decompô-lo em fatores primos.
+
+//24.	Fazer um programa para receber dois números do usuário e calcular o seu MDC utilizando o método de Euclides. O programa deve continuar pedindo dois números até que 0 e 0 sejam fornecidos.
+
+//25.	Fazer um programa para receber dois números inteiros do usuário e mostrar o seu MMC (mínimo múltiplo comum).
+
+//26.	Dada a afirmação: “A tem o dobro da idade que B tinha quando A tinha a idade que B tem. Quando B tiver a idade de A, somarão 81 anos.”. Fazer um programa para calcular as idades de A e B no método “força bruta” (tentativa e erro com todos os valores inteiros possíveis).
+
+//27.	Fazer um programa para medir os reflexos do usuário. O programa deve:
+//a.	Mostrar a palavra “Agora!” após um tempo aleatório e um número, também aleatório
+//b.	Medir o tempo até que o usuário digite o número pedido e mostrar esse tempo.
+//Dica: usar a função clock da biblioteca time.h (verificar exemplos na internet ou pedir ao professor),
+
+//28.	Fazer um programa para mostrar a soma de todos os números 4 do dominó.
+
+//29.	Fazer um programa no qual o usuário vai entrando sucessivamente com valores positivos. Quando o usuário entrar com um valor negativo o programa para de pedir valores e calcula a média dos valores já fornecidos.
+
+//30.	(Cortesia do Prof. Bogdan Tomoyuki Nassu) Escreva um programa que lê um inteiro positivo e verifica se ele contém o dígito 3 em qualquer posição.
+
+//31.	Como generalização do exercício anterior, escreva um programa que lê dois inteiros positivos n1 e n2 e verifica se n1 contém a sequência de dígitos de n2 em qualquer posição. Por exemplo, isto ocorreria para n1 = 3623 e n2 = 62, ou para n1 = 3623 e n2 = 36.
+
+//32.	Fazer um programa para receber dois números do tipo unsigned int do usuário e determinar se um número é permutação do outro ou não. Ex: 431 é permutação de 143, 42 é permutação de 204, 1211 é permutação de 1112, etc. O programa só deve aceitar números positivos.
+
+//33.	Fazer um programa para encontrar todos os pares de números amigáveis entre 1 e 100000. Um par de números é amigável quando cada um deles é igual à soma dos divisores do outro.
+
+//34.	Faça um programa que sorteie um número aleatório entre 0 e 500 e pergunte ao usuário qual é o "número mágico". O programa deverá indicar se a tentativa efetuada pelo usuário é maior ou menor que o número mágico e contar o número de tentativas. Quando o usuário conseguir acertar o número o programa deverá classiﬁcar o usuário como:	
+
+//a.		De 1 a 3 tentativas: muito sortudo
+//b.	De 4 a 6 tentativas: sortudo
+//c.	De 7 a 10 tentativas: normal
+//d.	> 10 tentativas: tente novamente
+
+	 
+
+//35.	Escrever um programa para ler um número inteiro do usuário e exibir o maior número primo que seja menor do que o número digitado.
+
+//36.	Fazer um programa para exibir os n primeiros múltiplos simultâneos de dois números dados.
+
+//37.	(Cortesia do Prof. Bogdan Tomoyuki Nassu) Escreva um programa no qual o usuário digita uma quantidade arbitrária de números inteiros positivos. Quando o usuário digitar um número menor ou igual a 0, o programa deve indicar o tamanho da maior sequência crescente observada. Por exemplo, se os números digitados forem 5, 10, 3, 2, 4, 7, 9, 8, 5, a maior sequência crescente é 2, 4, 7, 9, então o programa deve mostrar na tela que a maior sequência crescente tem 4 números. Já a sequência 10, 8, 7, 5, 2 está em ordem decrescente, portanto a maior sequência crescente observada tem tamanho 1.
+
+//38.	Chico tem 1,50 metro e cresce 2 centímetros por ano, enquanto Zé tem 1,10 metro e cresce 3 centímetros por ano. Construa um programa que calcule e imprima quantos anos serão necessários para que Zé seja maior que Chico.
+
+#include<stdio.h>
+
+int main(){
+  
+int altura_chico = 150; 
+int altura_ze = 110;
+int total_anos = 0;
+
+while(altura_chico >= altura_ze)
+{
+  altura_chico = altura_chico + 2;
+  altura_ze = altura_ze + 3;
+  total_anos = total_anos  + 1;
+}
+
+printf("Em %d anos, Zé será mais alto que Chico.", total_anos);
+
+ return 0;
+}
+
+//39.	Um passageiro corre à sua velocidade máxima de 8 m/s para pegar um trem. Quando está à distância d da porta de entrada, o trem principia a rodar com aceleração constante a = 1 m/(s*s), afastando-se.
+//a.	Se d = 30 m e se o passageiro continua a correr, conseguirá ou não pegar o trem? Responda a essa pergunta elaborando um programa em C que simula os deslocamentos do passageiro e do trem, com intervalos de tempo variando entre 1 s e 0,1 s. Avalie os resultados obtidos frente ao resultado analítico (obtido através da resolução da equação).
+//b.	A distância crítica de separação inicial é chamada de dc. Adaptar o programa anterior para variar a distância inicial d e obter a distância crítica por comparação. Com a distância crítica de separação dc, qual a velocidade do trem quando o passageiro consegue pegá-lo? Qual é a velocidade média do trem no intervalo de tempo t = 0 até este instante? Qual é o valor de dc?
+//c.	Fazer um programa em C para desenhar a função posição x(t)   do trem, com x = 0 em t = 0. No mesmo gráfico, desenhar a função x(t) do passageiro, com diversas distâncias de separação inicial d, incluindo a distância d = 30 m e a distância crítica de separação dc que lhe permite pegar o trem por um átimo.
+
+//40.	Um corpo se move sobre uma reta e duplica sua velocidade, a cada segundo, durante os primeiros 10s. Seja 2 m/s a velocidade inicial. Qual é a velocidade média nos primeiros 10s? Responda a essa pergunta elaborando um programa em C que simula a variação da velocidade e o deslocamento do corpo, com intervalos de tempo variando entre 1 s e 0,1 s.
+
+//41.	(Cortesia do Prof. Bogdan Tomoyuki Nassu) Um agricultor possui 1 (uma) espiga de milho. Cada espiga tem 150 grãos, e cada grão pesa 1g (um grama). Escreva um programa para determinar quantos anos serão necessários para que o agricultor colha mais de cem toneladas de milho (1T = 1000Kg, 1Kg =1000g), sendo que:
+//a.	A cada ano ele planta todos os grãos da colheita anterior.
+//b.	Há apenas uma colheita por ano
+//c.	0% (dez por cento) dos grãos não germinam (morrem sem produzir).
+//d.	Cada grão que germina produz duas espigas de milho.
+
+//Considere que a quantidade de terra disponível é sempre suficiente para o plantio.
+
+//42.	A nota final de Fund Prog I é calculada conforme a fórmula fornecida pelo professor no primeiro dia de aula (ver Moodle). Após a primeira prova, primeira lista de exercícios e a primeira entrega do trabalho, os alunos têm muito interesse em saber de que nota precisam nas demais avaliações para serem aprovados. Faça um programa que:
+/a.	Receba do usuário os valores das notas da primeira prova, primeira lista e se a proposta de trabalho foi entregue atrasada ou não (propostas em atraso geram uma penalidade de 20% na nota do projeto final).
+//b.	Calcule e mostre todas as combinações possíveis de notas das demais avaliações (segunda prova, segunda lista e nota final do trabalho) que permitem que ele seja aprovado. Considerar que a resolução (variação mínima) para cada uma das notas é de 1 ponto em 100.
