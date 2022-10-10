@@ -1,0 +1,413 @@
+//4.	Fazer um programa para ler um número do usuário e determinar se este número é par ou não par.
+
+#include <stdio.h>
+
+int main(void) {
+int num, div, rest;
+
+printf("Digite um número Inteiro: \n");
+scanf("%d", &num);
+  
+div = num % 2;
+rest = div;
+if (rest == 0)
+{
+printf("Número Par", rest);
+}
+else 
+{
+printf("Número Não Par", rest);
+}
+return 0;
+}
+
+//5.	Fazer um programa para receber valores inteiros X, Y e Z do usuário e determinar se estes valores podem formar os lados de um triângulo. Em caso afirmativo, informar se o triângulo é equilátero, isósceles ou escaleno.
+
+#include <stdio.h>
+
+int main(void) {
+int X, Y, Z;
+
+printf("Digite o primeiro lado: \n");
+scanf("%d", &X);
+
+printf("Digite o segundo lado: \n");
+scanf("%d", &Y);
+
+printf("Digite o terceiro lado \n");
+scanf("%d", &Z);
+  
+if (X > Y + Z || Y > X + Z || Z > X + Y){
+  printf("Não existe Triângulo \n");
+}  
+if (X==Y && Y==Z && X==Z){
+printf("Triângulo Equilátero \n");
+}
+if (X!=Y && X!=Z && Y!=Z){
+printf("Triângulo Escaleno \n");
+}
+else
+printf("Triângulo Isósceles \n");
+  
+return 0;
+}
+
+//6.	Fazer um programa que recebe 3 valores não inteiros do usuário e mostra o maior deles, o menor deles e o valor intermediário.
+
+#include<stdlib.h>
+#include<stdio.h>
+
+int main(){
+float x, y, z;
+	
+printf("Digite o primeiro número:\n");
+  scanf("%f", &x);
+
+printf("Digite o segundo número:\n");
+  scanf("%f", &y);
+
+printf("Digite o terceiro número:\n");
+  scanf("%f", &z);
+
+if ((x > y) && (x > z) && (y > z)){
+  printf("\n");
+  printf("Maior %.2f\n", x);
+  printf("Menor %.2f\n", z);
+  printf("Médio %.2f\n", y);
+}
+if((y > x) && (y > z) && (x > z)){
+  printf("\n");
+  printf("Maior %.2f\n", y);
+  printf("Menor %.2f\n", z);
+  printf("Médio %.2f\n", x);
+}
+if ((z > x) && (z > y) && (x > y)){
+  printf("\n");
+  printf("Maior %.2f\n", z);
+  printf("Menor %.2f\n", y);
+  printf("Médio %.2f\n", x);
+}
+if ((y > x) && (y > z) && (z > x)){
+  printf("\n");
+ printf("Maior %.2f\n", y);
+ printf("Menor %.2f\n", x);
+ printf("Médio %.2f\n", z); 
+}
+	return 0;
+}
+
+//7.	Fazer um programa que recebe um símbolo de operação do usuário (+, -, / ou *) e dois números reais. O programa deve retornar o resultado da operação recebida sobre estes dois números.
+
+#include <stdio.h>
+
+int main() {
+float n1, n2, resul;
+char oper;
+
+
+printf("Qual operação você deseja realizar?\n+ ou - ou / ou *: \n");
+printf("Em caso de Divisão, informar primeiro o número a ser divido:\nEm caso de Subtração, informar primeiro o número a ser subtraído:\n");
+scanf("%c", &oper);
+
+printf("Digite o primeiro número:\n");
+scanf("%f", &n1);
+printf("Digite o segundo número:\n");
+scanf("%f", &n2);
+
+if (oper == '+'){
+resul = n1 + n2;
+printf("O resultado da soma é %.2f", resul);
+}
+else if (oper == '-'){
+  resul = n1 - n2;
+  printf("O resultado da subtração é %.2f", resul);
+}
+else if (oper == '/'){
+  resul = n1 / n2;
+  printf("O resultado da divisão é %.2f", resul);
+}
+else if (oper == '*'){
+  resul = n1 * n2;
+  printf("O resultado da multiplicação é %.2f", resul);
+}
+  return 0;
+}
+
+//8.	Fazer um programa que recebe duas notas parciais de um aluno (0 a 100) e informa se ele está aprovado (média maior ou igual a 70), em exame final (média entre 40 e 69) ou reprovado (média menor do que 40). Caso esteja em exame o programa deve pedir a nota do exame (0 a 100) e informar se o aluno está aprovado (média mais nota do exame maior ou igual a 100) ou reprovado (média mais nota do exame menor do que 100).
+
+
+#include <stdio.h>
+
+int main(void) {
+float n1, n2, n3, media, notafinal;
+
+  printf("Digite as 3 notas: \n");
+  scanf("%f %f %f", &n1, &n2, &n3);
+printf("\n");
+  
+  media = (n1 + n2 + n3) / 3;
+  
+  printf("Sua média é %2.f. \n", media);
+  printf("\n");
+  
+  if (media >= 70){
+    printf("Aprovado (a)!");
+  }
+  else if((media >= 40) && (media < 69)){
+    printf("Você esta na final! \n");
+    printf("\n");
+    printf("Digite a nota da Final: \n");
+    scanf("%f", &notafinal);
+    
+    media = media + notafinal;
+    
+    if (media >= 100){
+      printf("Aprovado(a) na Final!");
+    }
+       else{
+    printf("Reprovado (a)!");
+    }
+  }
+ else
+ {
+  printf("Reprovado(a)!");
+ }
+
+  return 0;
+}
+
+
+//9.	Fazer um programa para solicitar ao usuário um número entre 0 e 99 e mostrar este número por extenso. Se o usuário introduzir um número que não está neste intervalo, mostre: "número inválido". Fonte:http://www.bernhard.pro.br/disciplinas/java/ensino/java-L01.pdf
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int main (){
+void numeroExtenso();
+
+    char extensos[100][20] = {"zero", "um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove", "dez", "onze", "doze", "treze", "catorze", "quinze", "dezasseis", "dezassete", "dezoito", "dezanove", "vinte", "vinte e um", "vinte e dois", "vinte e três", "vinte e quatro", "vinte e cinco", "vinte e seis", "vinte e sete", "vinte e oito", "vinte e nove", "trinta", "trinta e um", "trinta e dois", "trinta e três", "trinta e quatro", "trinta e cinco", "trinta e seis", "trinta e sete", "trinta e oito", "trinta e nove", "quarenta", "quarenta e um", "quarenta e dois", "quarenta e três", "quarenta e quatro", "quarenta e cinco", "quarenta e seis", "quarenta e sete", "quarenta e oito", "quarenta e nove", "cinquenta", "cinquenta e um", "cinquenta e dois", "cinquenta e três", "cinquenta e quatro", "cinquenta e cinco", "cinquenta e seis", "cinquenta e sete", "cinquenta e oito", "cinquenta e nove", "sessenta", "sessenta e um", "sessenta e dois", "sessenta e três", "sessenta e quatro", "sessenta e cinco", "sessenta e seis", "sessenta e sete", "sessenta e oito", "sessenta e nove", "setenta", "setenta e um", "setenta e dois", "setenta e três", "setenta e quatro", "setenta e cinco", "setenta e seis", "setenta e sete", "setenta e oito", "setenta e nove", "oitenta", "oitenta e um", "oitenta e dois", "oitenta e três", "oitenta e quatro", "oitenta e cinco", "oitenta e seis", "oitenta e sete", "oitenta e oito", "oitenta e nove", "noventa", "noventa e um", "noventa e dois", "noventa e três", "noventa e quatro", "noventa e cinco", "noventa e seis", "noventa e sete", "noventa e oito", "noventa e nove"};
+
+    int num;
+
+    printf("Digite um número entre 0 e 99:\n");
+    scanf("%i",&num);
+
+    if(num >= 0 && num <= 99)
+    {
+    printf (extensos[num]);
+    }
+    else
+    {
+    printf("Número inválido!");
+    }
+
+return 0;
+}
+
+
+//10.	(Cortesia do Prof. Bogdan Tomoyuki Nassu) Escreva um programa que receba a velocidade máxima em uma avenida e a velocidade com que um motorista estava dirigindo nela. Calcule a multa que o motorista vai receber, considerando que são pagos R$ 5,00 por cada km/h que estiver acima da velocidade permitida (considere apenas números inteiros). Se a velocidade do motorista estiver dentro do limite, o programa deve informar que não há multa.
+
+
+#include <stdio.h>
+
+int main() {
+int velmax, velult, mult;
+
+printf("Informe a Velicidade Máxima da Via: \n");
+scanf("%d", &velmax);
+
+printf("Informe a velocidade do Condutor ao ultrapassar o radar:\n");
+scanf("%d", &velult);
+
+if (velult > velmax){
+  mult = (velmax - velult)*5;
+  printf("Você ultrapassou o límite de velocidade permitido nesta via, sua multa será de R$ %d,00", mult);
+}
+else
+  printf("Não há multa!");
+
+  return 0;
+}
+
+
+//11.	Escreva um programa para receber do usuário um mês (de 1 a 12) e um ano (de 0 D.C. em diante) e mostrar o número de dias daquele mês daquele ano. Utilizar switch e levar em consideração anos bissextos para o cálculo.
+
+//12.	(Cortesia do Prof. Bogdan Tomoyuki Nassu) Suponha que você está programando um módulo contador de cédulas para caixas eletrônicos. Escreva um programa que informa com quantas cédulas de Real podemos representar um dado valor. Exemplo de resposta: R$ 218
+//= 2 cédulas de 100, 1 cédula de 10, 1 cédula de 5, 1 cédula de 2 e 1 cédula de 1. Procure minimizar o número de cédulas usadas. Desconsidere valores com centavos, e suponha que a máquina sempre tem disponíveis as cédulas necessárias.
+
+#include <stdio.h>
+
+int main(){
+    int real, a ,b, c, d, e;
+printf("digite o valor:");
+scanf("%d", &real);
+a = real / 100;
+
+b = a / 110;
+
+c = real / 105;
+
+d = real / 200;
+
+e = real / 101;
+
+if (real >= 100){
+    printf("%d  cedulas de 100,",a);
+
+}if(b >= 10){
+    printf("%d cedulas de 10,",b);
+
+}if (c >= 5){
+    printf("%d cedulas de 5,", c);
+
+}if (d >= 2){
+    printf("%d cedulas de 2,",d);
+
+}if (e >= 1){
+    printf("%d cedulas de 1",e);
+
+
+}
+
+
+//13.	Escreva um programa que calcule o salário semanal de um trabalhador. As entradas são o número de horas trabalhadas na semana e o valor da hora. Até 40 h/semana não se acrescenta nenhum adicional. Acima de 40h e até 60h há um bônus de 50% para essas horas. Acima de 60h há um bônus de 100% para essas horas.
+
+#include <stdio.h>
+
+int main() {
+
+int semana,valor,a,b,bb,c,cc;
+
+printf("digite as horas trabalhadas na semana:");
+scanf("%d", &semana);
+
+printf("valor da hora:");
+scanf("%d",&valor);
+a = semana * valor;
+b = (a*50)/100;
+bb = b = a;
+c = (a*100)/100;
+cc = a +c;
+if(semana == 40){
+
+
+    printf("sem adicional  %d",a);
+    }
+if(semana >40 &&  semana <= 60){
+    printf("acresimo de 50%% %d",bb);
+}
+if(semana>60){
+
+
+printf("acressimo de 100%% %d",cc);
+}
+
+    return 0;
+
+}
+
+
+//14.	(Cortesia do Prof. Bogdan Tomoyuki Nassu) Zeca está organizando um bolão de futebol. Segundo suas regras, os apostadores informam o placar do jogo e ganham 10 pontos se acertarem o vencedor ou se acertarem que foi empate, e ganham mais 5 pontos para o placar de cada time que acertarem. A tabela a seguir dá um exemplo, considerando que o placar real foi 3x2:
+
+//Placar apostado	Pontos	Razão
+//0x1	0	Não acertou o vencedor e nem o número de gols dos times.
+//0x2	5	Não acertou o vencedor, mas acertou o número de gols do segundo time.
+//3x5	5	Não acertou o vencedor, mas acertou o número de gols do primeiro time.
+//1x0	10	Acertou o vencedor, mas não acertou o número de gols dos times.
+//3x1	15	Acertou o vencedor e o número de gols do primeiro time.
+//3x2	20	Acertou o vencedor e o número de gols de ambos os times.
+
+//Escreva um programa que requisita do usuário o placar apostado e depois o placar do jogo e informa quantos pontos o apostador fez.
+
+#include <stdio.h>
+
+int main() {
+
+int time1, time2, aposta1, aposta2;
+printf("digite o resultado apostado do primeiro time");
+  scanf("%d",& aposta1);
+
+printf("digite o resultado apostado do segundo time");
+  scanf("%d", & aposta2);
+  
+printf("digite o resultado  do primeiro time");
+  scanf("%d",& time1);
+  
+printf("digite o resultado  do segundo time");
+  scanf("%d",& time2);
+
+  printf("placar %dx%d\naposta %dx%d\n",time1,time2,aposta1,aposta2);
+
+  if(aposta1 == time1 && aposta2 == time2){
+    printf("Acertou o vencedor e o número de gols de ambos os times., 20 pontos");
+  }
+  if(aposta1 > time1  && aposta2 == time2){
+    printf("Não acertou o vencedor, mas acertou o número de gols do segundo time. 10 pontos");
+    }
+ if(aposta1 == time1 && aposta2 > time2){
+    printf("Não acertou o vencedor, mas acertou o número de gols do primeiro time. 10 pontos");
+   }
+if(aposta1 < time1 && aposta2 < time2){
+  printf("Não acertou o vencedor e nem o número de gols dos times. 0 pontos");
+  }
+if(aposta1 == time1 ){
+
+  printf("Acertou o vencedor e o número de gols do primeiro time.15 pontos");
+}
+if(aposta1 >time1 || aposta2 >time2){
+  printf("Acertou o vencedor, mas não acertou o número de gols dos times. 10 pontos");
+}
+  return 0;
+}
+
+
+//15.	(Cortesia do Prof. Bogdan Tomoyuki Nassu) A tabela abaixo foi copiada do website da Receita Federal, e traz as alíquotas do imposto de renda de pessoa física retido na fonte para o exercício de 2013:
+
+//Base de cálculo mensal em R$	Alíquota %	Parcela a deduzir do imposto em R$
+//Até 1.637,11	-	-
+//De 1.637,12 até 2.453,50	7,5	122,78
+//De 2.453,51 até 3.271,38	15,0	306,80
+//De 3.271,39 até 4.087,65	22,5	552,15
+//Acima de 4.087,65	27,5	756,53
+
+//A base de cálculo é dada pelo salário mensal, com certas deduções, como dependentes e contribuição previdenciária. Abstraindo estes e outros detalhes, o imposto devido é calculado tomando a base de cálculo mensal, verificando a faixa na qual ela se encontra, aplicando a alíquota correspondente, e reduzindo o valor final da parcela a deduzir. Por exemplo, se a base de cálculo é de R$10.000,00, a alíquota é de 27,5%, ou seja, R$2750,00. Deduzimos R$756,53 da parcela e obtemos como resultado final R$1993,47 de imposto devido.
+
+//Escreva um programa que receba como entrada a base de cálculo mensal de um trabalhador e retorne o imposto de renda devido.
+
+#include <stdio.h>
+
+int main(void){
+
+    float base;
+    printf("Instrução: Digite 1620.16 em vez de 1.620.16\n");
+    printf("\n");
+    printf("Digite a base de cálculo: \n");
+    scanf("%f", &base);
+
+    if(base > 1637.11 && base <= 2453.50){
+        printf("%.2f", base * 0.075 - 122.78);
+    }
+
+    if(base > 2453.51 && base <= 3271.38){
+        printf("Imposto devido %.2f", base * 0.15 - 306.80);
+    }
+
+    if(base > 3271.38 && base <= 4087.65){
+        printf("Imposto devido %.2f", base * 0.15 - 306.80);
+    }
+
+    if(base > 4087.65){
+        printf("Imposto devido %.2f", base * 0.275 - 756.53);
+    }
+
+  return 0;
+}
+
+
+
+//16.	Faça um programa que receba do usuário o número de lados e o tamanho dos lados de um polígono regular e imprima o valor da área do polígono. O programa deve utilizar uma estrutura switch-case para decidir que fórmula de cálculo utilizar, de acordo com o número de lados do polígono. Se o número de lados for diferente de 3, 4 ou 6, o programa deve informar: “não sei calcular a área”. Áreas:
+
+//a.	Triângulo: A = L*L*1.73/4
+//b.	Quadrado: A = L*L
+//c.	Hexágono: A = 6*L*L*1.73/4;
