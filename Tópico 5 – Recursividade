@@ -1,0 +1,20 @@
+52.	Escreva a função para cálculo do N-ésimo termo da série de Fibonacci utilizando recursividade.
+
+53.	Implementar a função EXP com as seguintes características:
+a.	Recebe um valor de base e um valor de expoente como parâmetros do tipo unsigned int.
+b.	Retorna o resultado de baseexpoente na forma de um unsigned int.
+c.	Armazena o valor 1 na variável global status se foi bem sucedida e 0 se a exponenciação não pôde ser calculada devido a estouro.
+d.	Utiliza a característica recursiva da exponenciação:
+i.	Baseexp = base.baseexp-1 , exp > 0
+ii.	Baseexp = 1, exp ==0 
+54.	Considere uma partida de futebol entre duas equipes A x B, cujo placar final é m x n, em que m e n são os números de gols marcados por A e B, respectivamente. Escreva um algoritmo recursivo que imprima todas as possíveis sucessões de gols marcados. Por exemplo, para um placar final de 3 x 1, as possíveis sucessões de gols são “AAAB”, “AABA”, “ABAA” e “BAAA”.
+
+55.	Torre de Hanói: considerando 3 torres, o objetivo é transferir 3 discos que estão na torre A para a torre C, usando uma torre B como auxiliar. Somente o último disco de cima de uma pilha pode ser deslocado para outra, e um disco maior nunca pode ser colocado sobre um menor. Implementar uma função recursiva que mostra a sequência de movimentos para resolver o problema da Torre de Hanói.
+
+56.	Escreva uma função recursiva que calcule a soma dos dígitos de um número inteiro. Por exemplo, se a entrada for 123, a saída deverá ser 1+2+3 = 6.
+
+57.	Crie uma função recursiva que receba um número inteiro positivo N e calcule o somatório dos números de 1 a N.
+
+58.	Escreva uma função recursiva que determine quantas vezes um dígito K ocorre em um número natural N. Por exemplo, o dígito 2 ocorre 3 vezes em 762021192.
+
+59.	Dado um número n na base decimal, escreva uma função recursiva em C que imprime este número na base binária.
