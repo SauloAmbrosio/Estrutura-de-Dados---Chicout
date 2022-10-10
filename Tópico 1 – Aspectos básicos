@@ -1,0 +1,79 @@
+//1.	Fazer um programa para
+//a.	receber do usuário um tempo em segundos, correspondente à duração de um evento qualquer (por ex. jogo de futebol)
+//b.	calcular e mostrar ao usuário o tempo equivalente em horas, minutos e segundo.
+
+#include <stdio.h>
+
+int main (){
+
+ int time, h, m, s;
+ printf("Escreva um tempo em segundos: \n");
+ scanf("%d", &time);
+
+   h = time / 3600;
+   m = (time % 3600) / 60;
+   s = (time % 3600) % 60;
+{
+  printf("\n");
+  printf("O tempo total foi de %d:%d:%d", h, m, s);
+
+}
+return 0;
+}
+
+
+//2.	Fazer um programa para receber 3 valores inteiros do usuário e mostrar a sua média (que pode não ser inteira).
+
+#include <stdio.h>
+
+int main(void) {
+
+int num1, num2, num3;
+float soma, media;
+
+printf("Digite o primeiro valor \n");
+scanf("%d", &num1);
+printf("Digite o segundo valor \n");
+scanf("%d", &num2);
+printf("Digite o terceiro valor \n");
+scanf("%d", &num3);
+
+soma = num1 + num2 + num3;
+media = soma / 3;
+
+printf("Média obtida, %.2f", media);  
+  
+  return 0;
+}
+
+
+//3.	Fazer um programa para calcular uma trajetória parabólica. O programa deve:
+
+//a.	Receber do usuário a altura relativa ao solo de onde o projétil é lançado, a velocidade inicial em m/s e o ângulo de lançamento
+//b.	Calcular e mostrar a quantos metros de distância o projétil atingirá o chão, considerando aceleração da gravidade igual a 9,81 m/s2.
+
+#include <stdio.h>
+
+int main(void) {
+
+float altuLanc, veloInc, ms, grav, distPerc;
+int Ang;
+
+ms = veloInc / 1000;
+grav = 9.81;
+
+distPerc = ms * grav;
+  
+printf("Altura de Lançamento:\n");
+scanf("%f", &altuLanc);
+
+printf("Informe a Velocidade Inicial: \n");
+scanf("%f" , &veloInc);
+
+printf("Infome o Ângulo do Lancamento: \n");
+scanf("%d", &Ang);
+
+printf("Distância Percorrida, %f", distPerc);
+
+return 0;
+}
