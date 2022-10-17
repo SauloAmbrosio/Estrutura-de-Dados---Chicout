@@ -1,5 +1,32 @@
 //17.	O número 3025 possui a seguinte característica: 30 + 25 = 55 -> 55*55 = 3025. Fazer um programa para obter todos os números de 4 algarismos com a mesma característica do número 3025.
 
+#include <stdio.h>
+
+int a, a1, a2, b, c, d, n[4];
+int contador = 0;
+int main(){
+
+  for(a=0; a<10; a++){
+    for(b=0; b<10; b++){
+      for(c=0; c<10;c++){
+        for(d=0; d<10;d++){
+          (n[0]*10+n[1] + (n[2]*10+n[3]));
+          a1 = n[0]*1000+n[1]*100+n[2]*10+n[3]*1;
+          if(a2 == a1*a1){
+          printf("%d",a2);
+          contador++;
+
+      
+
+          
+        }
+      }
+    }
+  }
+
+}
+
+
 //18.	Fazer um programa para mostrar os 15 primeiros termos da série de Fibonacci.
 
 #include <stdio.h>
