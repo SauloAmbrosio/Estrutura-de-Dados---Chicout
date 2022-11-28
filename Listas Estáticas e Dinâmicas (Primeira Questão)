@@ -1,0 +1,292 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void verificaListaOrdenada(int L1[], int tamanho)//E 1 item a;
+{
+	int i;
+	int s1 = 0;
+	int s2 = 0;
+	
+	for (i = 0; i < tamanho -1; i++)
+	{
+		if (L1[i] < L1[i+1])
+		{
+			s1++;
+		}
+		if (L1[i] > L1[i+1])
+		{
+			s2++;
+		}
+	}
+	
+	if ((s1 == tamanho -1) || (s2 == tamanho -1))
+	{
+		printf("Lista Ordenada!\n");
+	}
+	else
+	{
+		printf("Lista Não Ordenada!\n");
+	}
+}
+
+void copiarListaL1emL2(int L1[], int tamanho)//E 1 item b;
+{
+	int L2[tamanho];
+	int i;
+	
+	for (i = 0; i < tamanho; i++)
+	{
+		L2[i] = L1[i];
+	}
+	
+	for (i = 0; i < tamanho; i++)
+	{
+		printf("%d\t", L2[i]);
+	}
+}
+
+void eliminaItemRepetido(int L1[], int tamanho)//E 1 item c;
+{
+	int i, j;
+	int L2[tamanho];
+	int cont = 0;
+	int s;
+	
+	for (i = 0; i < tamanho; i++)
+	{
+		s = 0;
+		//printf("Valor de i: %d", i);
+		
+		for (j = 0; j < cont; j++)
+		{
+			//printf("Valor de j: %d", j);//apagar
+			if (L2[j] != L1[i])
+			{
+				s++;
+				//printf("Valor de s: %d", s);//apagar
+			}
+		}
+		
+		if ((s == cont) || (cont == 0))
+		{
+			L2[cont] = L1[i];
+			cont++;
+		}
+	}
+	
+	for (i = 0; i < cont; i++)
+	{
+		printf("%d\t", L2[i]);
+	}
+	
+}
+
+void invertaL1emL2(int L1[], int tamanho)//E 1 item d;
+{
+	int L2[tamanho];
+	int i;
+	int j = tamanho - 1;
+	
+	for (i = 0; i < tamanho; i++)
+	{
+		L2[j] = L1[i];
+		j--;
+	}
+	
+	for (i = 0; i < tamanho; i++)
+	{
+		printf("%d\t", L2[i]);
+	}
+}
+
+void inverteL1emL1(int L1[], int tamanho)//E 1 item e;
+{
+	int i;
+	int j = tamanho - 1;
+	int auxiliar;
+	
+	for (i = 0; i < tamanho / 2; i++)
+	{
+		auxiliar = L1[j];
+		L1[j] = L1[i];
+		L1[i] = auxiliar;
+		j--;
+	}
+	
+	for (i = 0; i < tamanho; i++)
+	{
+		printf("%d\t", L1[i]);
+	}
+	
+}
+
+void intercaleL1eL2gereL3(int L1[], int L2[], int tamanho)//E 1 item f;
+{
+	int L3[tamanho * 2];
+	int i1 = 0;
+	int i2 = 0;
+	int i3 = 0;
+	
+	while(i3 < tamanho * 2)
+	{
+
+		if (i1 <= i2)
+		{
+			L3[i3] = L1[i1];
+			i1++;
+		}
+		else
+		{
+			L3[i3] = L2[i2];
+			i2++;
+		}
+		
+		i3++; 
+	}
+	
+	for (i3 = 0; i3 < tamanho * 2; i3++)
+	{
+		printf("%d\t", L3[i3]);
+	} 
+}
+
+typedef struct
+{
+	int elem;
+	int count;
+}Elemento;
+
+void geradorDeLista(int L1[], int tamanho)
+{
+	Elemento L2[tamanho];
+	int i;
+	int j;
+	int tmax = 0;
+	int s;
+	
+	for (i = 0; i < tamanho; i++)
+	{
+		s = 0;
+		
+		for(j = 0; j < tmax; j++)
+		{
+			if (L2[j].elem != L1[i])
+			{
+				s++;
+			}
+			else
+			{
+				L2[j].count = L2[j].count + 1;
+			}
+		}
+		
+		if (s == tmax)
+		{
+			L2[tmax].elem = L1[i];
+			L2[tmax].count = 1;
+			tmax++;
+		}
+	}
+	
+	for (i = 0; i < tmax; i++)
+	{
+		printf("\n%d - %d\n", L2[i].elem, L2[i].count);
+	}
+	
+}
+
+void maximoMinimoRepetido(int L1[], int tamanho)
+{
+	Elemento L2[tamanho];
+	int i;
+	int j;
+	int tmax = 0;
+	int s;
+	
+	for (i = 0; i < tamanho; i++)
+	{
+		s = 0;
+		
+		for(j = 0; j < tmax; j++)
+		{
+			if (L2[j].elem != L1[i])
+			{
+				s++;
+			}
+			else
+			{
+				L2[j].count = L2[j].count + 1;
+			}
+		}
+		
+		if (s == tmax)
+		{
+			L2[tmax].elem = L1[i];
+			L2[tmax].count = 1;
+			tmax++;
+		}
+	}
+	
+	int indiceMax = 0;
+	int indiceMin = 0;
+	
+	for (i = 0; i < tmax; i++)
+	{
+		if (L2[i].count >= L2[indiceMax].count)
+		{
+			indiceMax = i;
+		}
+		
+		if (L2[i].count <= L2[indiceMin].count)
+		{
+			indiceMin = i;
+		}
+	}
+	printf("\n%d - %d\n", L2[indiceMax].elem, L2[indiceMax].count);
+	printf("\n%d - %d\n", L2[indiceMin].elem, L2[indiceMin].count);
+	/*for (i = 0; i < tmax; i++)
+	{
+		printf("\n%d - %d\n", L2[i].elem, L2[i].count);
+	}*/
+	
+}
+
+int main() {
+	
+	//int listaL1[] = {1,2,3,4,5,6};
+	int listaL1E1a[] = {6,5,4,3,2,1};
+	int listaL1E1b[] = {6,5,4,3,2,1};
+	int listaL1E1c[] = {6,5,4,4,3,3,2,1,1};
+	int listaL1E1d[] = {6,5,4,3,2,1};
+	int listaL1E1e[] = {1,2,3,4,5,6};
+	int listaL1E1f1[] = {1,2,3,4,5,6};
+	int listaL1E1f2[] = {1,2,3,4,5,6};
+	int listaL1E1g[] = {6,5,4,4,3,3,2,1,1,6,5,4,4};
+	int listaL1E1i[] = {6,5,4,4,4,3,3,2,1,1,6,5,4,4};
+	
+	verificaListaOrdenada(listaL1E1a, 6);//E 1 item a;
+	printf("\n");
+	
+	copiarListaL1emL2(listaL1E1b, 6);//E 1 item b;
+	printf("\n");
+	
+	eliminaItemRepetido(listaL1E1c, 9);//E 1 item c;
+	printf("\n");
+	
+	invertaL1emL2(listaL1E1d, 6);//E 1 item d;
+	printf("\n");
+	
+	inverteL1emL1(listaL1E1e, 6);//E 1 item e;
+	printf("\n");
+	
+	intercaleL1eL2gereL3(listaL1E1f1, listaL1E1f2, 6);//E 1 item f;
+	printf("\n");
+	
+	geradorDeLista(listaL1E1g, 13);//E 1 item g;
+	printf("\n");
+	
+	maximoMinimoRepetido(listaL1E1i, 14);//E 1 item i;
+	printf("\n");
+	
+	return 0;
+}
