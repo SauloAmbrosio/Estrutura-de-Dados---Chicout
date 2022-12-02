@@ -1,0 +1,98 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+
+void insereCrescente()
+{
+	srand(time(NULL));
+	
+	int L1[50];
+	int i;
+	int j;
+	int aux;
+	int num;
+    int n;
+    int max = 0;
+    
+    for (n = 0 ; n < 50 ; n++)
+    {
+    	num = rand() % 100;
+        
+        //ADICIONA NO FIM
+        L1[max] = num;
+        max++;
+        
+        //ORDENA
+        for (i = 0 ; i < max; i++)
+        {
+        	for (j = i ; j < max ; j++)
+            {
+            	if (L1[i] > L1[j])
+                {
+                	aux = L1[i];
+                	L1[i] = L1[j];
+                    L1[j] = aux;
+                }
+            }
+        }
+    }
+    
+	
+	for (i = 0; i < max; i++)
+	{
+		printf("%d,", L1[i]);
+	}
+}
+
+void insereDecrescente()
+{
+	srand(time(NULL));
+	
+	int L1[50];
+	int i;
+	int j;
+	int aux;
+	int num;
+    int n;
+    int max = 0;
+    
+    for (n = 0 ; n < 50 ; n++)
+    {
+    	num = rand() % 100;
+        
+        //ADICIONA NO FIM
+        L1[max] = num;
+        max++;
+        
+        //ORDENA
+        for (i = 0 ; i < max; i++)
+        {
+        	for (j = i ; j < max ; j++)
+            {
+            	if (L1[i] < L1[j])
+                {
+                	aux = L1[i];
+                	L1[i] = L1[j];
+                    L1[j] = aux;
+                }
+            }
+        }
+    }
+    
+	
+	for (i = 0; i < max; i++)
+	{
+		printf("%d,", L1[i]);
+	}
+}
+
+int main() {
+	
+	insereCrescente();
+	printf("\n\n");
+	insereDecrescente();
+	
+	
+	
+	return 0;
+}
