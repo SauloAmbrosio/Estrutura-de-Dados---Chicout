@@ -1,0 +1,42 @@
+# include  < stdio.h >
+
+int lista[10];
+lista de impressão void ()
+{
+    for (int i = 0; i < 10; i++) 
+{
+    printf ("%i => %i\n", i ,lista[i]);
+}
+
+}
+
+void  setList ()
+{
+    for ( int i = 0 ; i < 10 ; i++) 
+{
+    lista[i] = i + 2 ;
+    }
+}
+
+ troca vazia()
+{
+    int m, n, indice1, indice2;
+    printf ("Digite a primeira posicao que será trocada: ");
+    scanf ( " %i " , &m);
+
+    printf ( " Digite a segunda posição que será trocada: " );
+    scanf ( " %i " , &n);
+
+    indice1 = lista[m];
+    indice2 = lista[n];
+
+    lista[m] = indice2;
+    lista[n] = indice1;
+}
+
+int principal () {
+    setList ();
+    lista de impressão ();
+    troca ();
+    lista de impressão ();
+}
