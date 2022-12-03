@@ -1,0 +1,68 @@
+# include < stdio.h >
+# include < stdlib.h >
+# include  < malloc.h >
+
+typedef  struct noarvore
+{
+    dado int ;
+    struct noarvore *esquerda;
+    struct noarvore *direita;
+}Nao;
+
+Nao* criarNao ( int valor)
+{
+    Nao *novo = (Nao*)malloc(sizeof(Nao));
+    novo -> dado = valor;
+    novo -> esquerda = NULL ;
+    novo -> direita = NULL ;
+    retornar novo;
+}
+
+
+void  arvoreEmOrdem (No* raiz)
+{
+    if (raiz == NULL )
+{
+        retorno ;
+    }
+    arvoreEmOrdem (raiz-> esquerda );
+    printf ( " %d -> " , raiz-> dado );
+    arvoreEmOrdem (raiz-> direita );
+}
+
+void  espelhoArvore (No* raiz, No** espelho)
+{
+    if (raiz == NULL )
+{
+        espelho = NULO ;
+        retorno ;
+    }
+
+    *espelho = criarNo (raiz-> dado );
+    espelhoArvore (raiz-> esquerda , &((*espelho)-> direita ));
+    espelhoArvore (raiz-> direita , &((*espelho)-> esquerda ));
+}
+
+
+int  principal ()
+{
+    Nao * árvore = criarNo ( 4 );
+    arvore-> esquerda = criarNo ( 2 );
+    arvore-> direita = criarNo ( 6 );
+    arvore-> esquerda -> esquerda = criarNo ( 1 );
+    arvore-> esquerda -> direita = criarNo ( 3 );
+    árvore-> direita -> esquerda = criarNo ( 5 );
+    árvore-> direita -> direita = criarNo ( 10 );
+    árvore-> direita -> direita -> esquerda = criarNo ( 8 ) ;
+
+    printf ( " arvore original: " );
+    arvoreEmOrdem (arvore);
+    No* espelho = NULL ;
+    espelhoArvore (arvore, &espelho);
+
+    printf ( " \n arvore espelhada: " );
+    arvoreEmOrdem (espelho);
+
+    retorna  0 ;
+
+}
