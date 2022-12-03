@@ -1,0 +1,618 @@
+//Letra A
+
+# include  < stdio.h >
+# include  < stdlib.h >
+
+typedef  struct Nao 
+{
+   dado int ;
+   estrutura Não *prox;
+}no;
+
+lista de estruturas typedef 
+{
+   no *ini;
+   no *fim;
+}Lista;
+
+void  inicializaFila (Lista *f) 
+
+{
+   f-> ini = NULL ;
+   f-> fim = NULL ;
+}
+
+void  enfileira ( int dado, Lista *f) 
+{
+    no *ptr = (no *)malloc(sizeof(no));
+    if (ptr == NULL)
+{
+  printf ( " Erro ao alocar memoria " );
+   retorno ;
+}
+senão
+{
+  ptr-> dado = dado;
+  ptr-> prox = NULL ;
+  if (f-> ini == NULL ) 
+{
+  f-> ini = ptr;
+} 
+senão 
+{
+  f-> fim -> prox = ptr;
+}
+
+ f-> fim = ptr;
+}
+}
+
+int  desenfileira (Lista *f) 
+{
+  no *ptr = f-> ini ;
+  dado int ;
+  if (ptr != NULL ) 
+{
+   f-> ini = ptr-> prox ;
+   ptr-> prox = NULL ;
+   dado = ptr-> dado ;
+   grátis (ptr);
+   if (f-> ini == NULL ) 
+{
+  f-> fim = NULL ;
+}
+
+ dado de retorno;
+ } 
+senão 
+{
+ printf ( " Fila Vazia. " );
+ retorna  0 ;
+    }
+}
+
+void  imprimeFile (Lista *f) 
+{
+ no *ptr = f-> ini;
+ if (ptr != NULL ) 
+{
+  while (ptr != NULL ) 
+{
+   printf ("%d", ptr-> dado);
+            ptr = ptr-> prox;
+}
+} 
+senão 
+{
+ printf ("Fila Vazia\n");
+ retorno ;
+}
+}
+
+void  conc (Lista *f1, Lista *f2, Lista *dest)
+{
+ no *ptrF1 = f1-> ini ;
+ no *ptrF2 = f2-> ini ;
+
+     if (ptrF1 == NULL && ptrF2 == NULL )
+	{
+ 	   printf ( " Fila Vazia " );
+        retorno ;
+    	}
+
+    if (ptrF1 != NULL ) 
+	{
+        while (ptrF1 != NULL ) 
+	{
+           enfileira ( ptrF1- > dado , dest);
+           ptrF1 = ptrF1-> prox ;
+        }
+    }
+
+    if (ptrF2 != NULL ) 
+	{
+        while (ptrF2 != NULL ) 
+	{
+            enfileira ( ptrF2- > dado , dest);
+            ptrF2 = ptrF2-> prox ;
+        }
+    }
+
+}
+
+int  principal ( vazio ) 
+{
+    Lista *fila1 = (Lista *) malloc ( sizeof (Lista));
+    Lista *fila2 = (Lista *) malloc ( sizeof (Lista));
+    Lista *fila3 = (Lista *) malloc ( sizeof (Lista));
+    if (fila1 == NULL ) 
+	{
+        printf ("Erro de alocação");
+        saída ( -1 );
+    	} 
+	senão 
+	{
+        inicializaFila (fila1);
+        inicializaFila (fila2);
+        inicializaFila (fila3);
+        enfileira ( 10 , fila1);
+        enfileira ( 20 , fila1);
+        enfileira ( 30 , fila1);
+        enfileira ( 40 , fila2);
+        enfileira ( 50 , fila2);
+        enfileira ( 60 , fila2);
+
+
+        conc (fila1, fila2, fila3);
+        imprimeFile (fila1);
+        printf ( " \n " );
+        imprimeFile (fila2);
+        printf ( " \n " );
+        imprimeFile (fila3);
+    }
+}
+
+//Letra B
+
+typedef  struct Nao 
+{
+  dado int ;
+  estrutura Nao *prox;
+}no;
+
+ lista de estruturas typedef 
+{
+ no *ini;
+ no *fim;
+}Lista;
+
+void  inicializaFila (Lista *f) 
+{
+    f-> ini = NULL ;
+    f-> fim = NULL ;
+}
+
+void  enfileira ( int dado, Lista *f) 
+{
+    no *ptr = (no*)malloc(sizeof(no));
+    if (ptr == NULL ) 
+{
+    printf ("Erro ao alocar memória");
+    retorno ;
+    }
+	senão 
+	{
+        ptr-> dado = dado;
+        ptr-> prox = NULL ;
+        if (f-> ini == NULL ) 
+	{
+           f-> ini = ptr;
+        } 
+	senão 
+	{
+            f-> fim -> prox = ptr;
+        }
+
+        f-> fim = ptr;
+    }
+}
+
+
+void  imprimeFile (Lista *f)
+{
+   no *ptr = f-> ini ;
+   if (ptr != NULL ) 
+{
+ while (ptr != NULL ) 
+{
+  printf ( "  %d  " ,ptr-> dado );
+  ptr = ptr-> prox ;
+    }
+        printf ( " \n " );
+    } 
+senão 
+{
+  printf ( " Fila Vazia \n " );
+  retorno ;
+    }
+}
+
+int  qtdItems (Lista * l)
+{
+    no *ptr = l-> ini ;
+    int i = 0 ;
+    if (ptr != NULL ) 
+{
+  while (ptr != NULL ) 
+{
+  i++;
+  ptr = ptr-> prox ;
+
+    }
+     retornar i;
+
+    } 
+senão 
+{
+  printf ("Fila Vazia\n");
+  retorna  0 ;
+    }
+}
+
+void  divFila (int itensPorFila, Lista *l1, Lista *l2, Lista *l3)
+{
+  no *ptr = l1-> ini ;
+
+  if (ptr != NULL ) 
+{
+
+ for ( int j = 0 ; j < itensPorFila; j++) 
+{
+   enfileira ( ptr- > dado , l2);
+   ptr = ptr-> prox ;
+  }
+
+  for ( int k = 0 ; k < itensPorFila; k++) 
+{
+     enfileira ( ptr- > dado , l3);
+            ptr = ptr-> prox ;
+        }
+
+
+    } 
+senão 
+{
+   printf ("Fila Vazia\n");
+   retorno ;
+    }
+
+
+}
+
+int  principal ( vazio ) 
+{
+    Lista *fila1 = (Lista *) malloc ( sizeof (Lista));
+    Lista *fila2 = (Lista *) malloc ( sizeof (Lista));
+    Lista *fila3 = (Lista *) malloc ( sizeof (Lista));
+
+    if (fila1 == NULL || fila2 == NULL || fila3 == NULL ) 
+{
+        printf ( " Erro de alocação " );
+        saída ( -1 );
+    } 
+senão 
+{
+        inicializaFila (fila1);
+        inicializaFila (fila2);
+        inicializaFila (fila3);
+        enfileira ( 10 , fila1);
+        enfileira ( 20 , fila1);
+        enfileira ( 30 , fila1);
+        enfileira ( 40 , fila1);
+        enfileira ( 55 , fila1);
+        enfileira ( 32 , fila1);
+        enfileira ( 45 , fila1);
+        enfileira ( 9 , fila1);
+
+        divFila ( qtdItems (fila1) / 2 , fila1, fila2, fila3);
+        imprimeFile (fila2);
+        imprimeFile (fila3);
+    }
+}
+
+//Letra C
+
+typedef  struct Nao 
+{
+    dado int ;
+    estrutura Nao *prox;
+}no;
+
+ lista de estruturas typedef 
+{
+    no *ini;
+    no *fim;
+}Lista;
+
+void  inicializaFila (Lista *f) 
+{
+    f-> ini = NULL ;
+    f-> fim = NULL ;
+}
+
+void  enfileira ( int dado, Lista *f) 
+{
+    no *ptr = (no *)malloc(sizeof(nó));
+    if (ptr == NULL ) 
+{
+        printf ("Erro ao alocar memória");
+        retorno ;
+    } 
+senão 
+{
+        ptr-> dado = dado;
+        ptr-> prox = NULL ;
+        if (f-> ini == NULL ) 
+{
+        f-> ini = ptr;
+        } 
+senão 
+{
+      f-> fim -> prox = ptr;
+ }
+
+        f-> fim = ptr;
+    }
+}
+
+int  desenfileira (Lista *f) 
+{
+    no *ptr = f-> ini ;
+    dado int ;
+
+    if (ptr != NULL ) 
+{
+        f-> ini = ptr-> prox ;
+        ptr-> prox = NULL ;
+        dado = ptr-> dado ;
+        grátis (ptr);
+
+        if (f-> ini == NULL ) 
+{
+         f-> fim = NULL ;
+        }
+
+        dado de retorno ;
+
+    } 
+senão 
+{
+     printf ( " Fila Vazia. " );
+     retorna  0 ;
+    }
+}
+
+void  imprimeFile (Lista *f) 
+{
+    no *ptr = f-> ini ;
+
+    if (ptr != NULL ) 
+{
+    while (ptr != NULL ) 
+{
+     printf ( "  %d  " ,ptr-> dado );
+     ptr = ptr-> prox ;
+        }
+    } 
+senão 
+{
+     printf ( " Fila Vazia \n " );
+     retorno ;
+    }
+}
+
+void  concat (Lista *f1, Lista *f2, Lista *dest)
+{
+    no *ptrF1 = f1-> ini ;
+    no *ptrF2 = f2-> ini ;
+
+    if (ptrF1 == NULL && ptrF2 == NULL )
+{
+        printf ( " Fila Vazia " );
+        retorno ;
+    }
+
+    if (ptrF1 != NULL ) 
+{
+while (ptrF1 != NULL ) 
+{
+    enfileira ( ptrF1- > dado , dest);
+    ptrF1 = ptrF1-> prox ;
+        }
+    }
+
+    if (ptrF2 != NULL ) 
+{
+    while (ptrF2 != NULL ) 
+{
+            enfileira ( ptrF2- > dado , dest);
+            ptrF2 = ptrF2-> prox ;
+        }
+    }
+
+}
+
+void  copy (Lista *lista1, Lista *dest)
+{
+    no *ptrL1 = lista1-> ini ;
+
+    if (ptrL1 == NULL )
+{
+    printf ("Fila Vazia");
+    retorno ;
+    }
+
+    if (ptrL1 != NULL ) 
+{
+   while (ptrL1 != NULL ) 
+{
+    enfileira ( ptrL1- > dado , dest);
+    ptrL1 = ptrL1-> prox ;
+        }
+    }
+}
+
+ controlador int ( void ) 
+{
+    Lista *fila1 = (Lista *) malloc ( sizeof (Lista));
+    Lista *fila2 = (Lista *) malloc ( sizeof (Lista));
+
+    if (fila1 == NULL)
+{
+     printf ( " Erro de alocação " );
+     saida ( -1 );
+    } 
+senão 
+{
+        inicializaFila (fila1);
+        inicializaFila (fila2);
+        enfileira ( 10 , fila1);
+        enfileira ( 20 , fila1);
+        enfileira ( 30 , fila1);
+
+        cópia (fila1, fila2);
+
+        imprimeFile (fila1);
+        printf ( " \n " );
+        imprimeFile (fila2);
+        printf ( " \n " );
+
+    }
+}
+
+//Letra D
+
+typedef  struct Nao 
+{
+  dado int ;
+  estrutura Nao *prox;
+}no;
+
+lista de estruturas typedef 
+{
+    no *ini;
+    no *fim;
+}Lista;
+
+void  inicializaFila (Lista *f) 
+{
+    f-> ini = NULL ;
+    f-> fim = NULL ;
+}
+
+void  enfileira ( int dado, Lista *f) 
+{
+    no *ptr = (no *)malloc(sizeof(no));
+
+    if (ptr == NULL) 
+{
+   printf ( " Erro ao alocar memoria " );
+   retorno ;
+
+    } 
+senão 
+{
+        ptr-> dado = dado;
+        ptr-> prox = NULL ;
+
+        if (f-> ini == NULL ) 
+{
+            f-> ini = ptr;
+        } 
+senão 
+{
+     f-> fim -> prox = ptr;
+ }
+
+        f-> fim = ptr;
+    }
+}
+
+int  desenfileira (Lista *f) 
+{
+    no *ptr = f-> ini ;
+    dado int ;
+
+    if (ptr != NULL ) 
+{
+        f-> ini = ptr-> prox ;
+        ptr-> prox = NULL ;
+        dado = ptr-> dado ;
+        grátis (ptr);
+
+        if (f-> ini == NULL ) 
+{
+        f-> fim = NULL ;
+        }
+
+dado de retorno ;
+    } 
+senão 
+{
+  printf ( " Fila Vazia. " );
+  retorna  0 ;
+
+    }
+}
+
+void  imprimeFile (Lista *f) 
+{
+    no *ptr = f-> ini ;
+
+    if (ptr != NULL ) 
+{
+    while (ptr != NULL ) 
+{
+    printf ("%d, ptr-> dado);
+    ptr = ptr-> prox ;
+        }
+    } 
+senão 
+{
+   printf ("Fila Vazia\n");
+   retorno ;
+    }
+}
+
+void  search ( elemento int , Lista *l)
+{
+    no *ptr = l-> ini ;
+
+    if (ptr != NULL ) 
+{
+  while (ptr != NULL ) 
+{
+
+  if (ptr-> dado == elemento)
+  {
+   printf ("Número buscado: %i - Número encontrado: %d - Endereço de memória: %i", elemento, ptr-> dado , &ptr-> dado );
+   retorno ;
+            }
+            ptr = ptr-> prox ;
+
+        }
+
+        printf ( " Valor não encontrado " );
+    } 
+senão 
+{
+  printf ( " Fila Vazia \n " );
+  retorno ;
+    }
+}
+
+int  principal ( vazio ) 
+{
+    opção int ;
+    Lista *fila1 = (Lista *) malloc ( sizeof (Lista));
+
+    if (fila1 == NULL ) 
+{
+    printf ( " Erro de alocação " );
+    saida ( -1 );
+    } 
+senão 
+{
+    inicializaFila (fila1);
+    enfileira ( 10 , fila1);
+    enfileira ( 20 , fila1);
+    enfileira ( 30 , fila1);
+
+        imprimeFile (fila1);
+        printf ("\nDigite o número que você quer achar: " );
+        scanf ( " %i " , &opção);
+        pesquisa (opção,fila1);
+
+
+    }
+}
