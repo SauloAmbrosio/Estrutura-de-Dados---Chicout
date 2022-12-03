@@ -1,0 +1,88 @@
+# include  < stdio.h >
+# include  < stdlib.h >
+
+
+
+typedef  struct lista
+{
+ informações int ;
+ struct lista *prox;
+}Lista;
+
+Lista* crialista ()
+{
+	retornar  NULO ;
+}
+
+
+Lista* inserir (Lista *ref, int valor)
+{
+	Lista novoNo = (Lista) malloc ( sizeof (Lista));
+	novoNo-> info =valor;
+	novoNo-> prox = ref;
+	ref= novoNo;
+	referência de retorno ;
+}
+
+void  invertaLista (Lista **ref)
+  {
+   Lista *aux, *p, *pd;
+
+   if (*ref != NULL )
+{
+        aux = NULO ;
+        p = *ref;
+        pd = p-> prox ;
+         
+{
+       p-> prox = aux;
+       aux = p;
+       p = pd;
+
+            if (pd != NULL )
+	    {
+            	pd = pd-> prox ;
+	    }
+
+          }while(p != NULL );
+          
+          *ref = auxiliar;
+       }
+   }
+
+void  imprimir (Lista *ref)
+{
+	Lista *p;
+
+	if (ref== NULL )
+{
+	printf ( " Lista Vazia " );
+
+	} 
+senão 
+{
+ 
+ for (p=ref;p!= NULL ;p=p-> prox )
+{
+ printf ( " %2d  " ,p-> info );
+}
+}
+}
+
+int  principal ()
+{
+	
+	Lista *ref= crialista ();
+	
+	ref = inserir (ref, 1 );
+	ref = inserir (ref, 2 );
+	ref = inserir (ref, 3 );
+	ref = inserir (ref, 4 );
+	printf ( " \ nlista normal \n " );
+	imprimir (ref);
+	invertaLista (&ref);
+	printf ( " \ nLista invertida \n " );
+	imprimir (ref);
+	
+	retorna  0 ;
+}
